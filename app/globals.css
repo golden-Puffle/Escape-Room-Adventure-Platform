@@ -1,0 +1,59 @@
+:root {
+  --bg: #e6eaec; --panel: #f6f8f8; --ink: #17212b; --muted: #5d6b76; --line: #c3ccd2;
+  --door: #1d3a3a; --door-ink: #eef3f1; --brass: #a8761c; --brass-soft: #f1e3c4;
+  --good: #1e7a52; --bad: #b3402f;
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --sans: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 var(--sans); }
+h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.2; margin: 0 0 .5rem; }
+h1 { font-size: 2rem; } h2 { font-size: 1.4rem; } h3 { font-size: 1.1rem; }
+a { color: var(--door); }
+main { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+.muted { color: var(--muted); }
+
+.nav { background: var(--door); color: var(--door-ink); display: flex; gap: 1.25rem; align-items: center; padding: .75rem 1.25rem; flex-wrap: wrap; }
+.nav a { color: var(--door-ink); text-decoration: none; }
+.nav a:hover, .nav button:hover { text-decoration: underline; }
+.nav .brand { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; margin-right: auto; }
+.nav button { background: none; border: 0; color: var(--door-ink); font: inherit; cursor: pointer; padding: 0; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 4px; padding: 1rem 1.1rem; }
+.card h3 { margin-bottom: .25rem; }
+.tag { display: inline-block; font-size: .8rem; padding: .05rem .5rem; border-radius: 3px; background: var(--brass-soft); color: #5e3f08; }
+.row { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; }
+.spread { justify-content: space-between; }
+
+input, select, textarea { font: inherit; padding: .5rem .6rem; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--ink); width: 100%; }
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+label { display: block; font-size: .9rem; margin: .6rem 0 .2rem; color: var(--muted); }
+.row > input, .row > select { width: auto; flex: 1 1 200px; }
+button.btn, a.btn { display: inline-block; font: inherit; background: var(--door); color: var(--door-ink); border: 0; border-radius: 4px; padding: .5rem 1rem; cursor: pointer; text-decoration: none; }
+button.btn:hover, a.btn:hover { background: #12292a; }
+button.btn.ghost { background: transparent; color: var(--door); border: 1px solid var(--door); }
+button.btn.danger { background: var(--bad); }
+button.btn:disabled { opacity: .5; cursor: default; }
+.error { color: var(--bad); margin: .5rem 0; }
+.okmsg { color: var(--good); margin: .5rem 0; }
+
+table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--line); }
+th, td { text-align: left; padding: .5rem .7rem; border-bottom: 1px solid var(--line); }
+th { font-weight: 600; background: #dde3e6; }
+.table-wrap { overflow-x: auto; }
+
+/* The one memorable element: the door plate you solve at */
+.locks { display: flex; gap: .5rem; margin: 0 0 1rem; }
+.lock { width: 2.2rem; height: 1.2rem; border-radius: 2px; border: 2px solid var(--brass); background: transparent; }
+.lock.open { background: var(--brass); }
+.lock.now { border-style: dashed; }
+.plate { background: var(--door); color: var(--door-ink); border: 3px double var(--brass); border-radius: 4px; padding: 1.5rem; }
+.plate h2 { color: var(--brass-soft); }
+.plate p { font-family: var(--serif); font-size: 1.15rem; max-width: 60ch; }
+.plate input { background: #f2f5f4; }
+.hints { margin: 1rem 0 0; padding-left: 1.2rem; color: var(--brass-soft); }
+.stat { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.puzzle-form { border: 1px solid var(--line); border-radius: 4px; padding: .75rem 1rem 1rem; margin: .75rem 0; background: var(--panel); }
+@media (prefers-reduced-motion: no-preference) { .lock { transition: background .3s; } }
